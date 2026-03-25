@@ -33,7 +33,7 @@
 <body>
 
     <div class="login-card">
-        <h4 class="text-center mb-3"> {{ config('app.name', 'Website') }}</h4>
+        <h4 class="text-center mb-3"> Sistem Publish Comment Management</h4>
 
         @if ($errors->any())
             <div class="alert alert-danger">

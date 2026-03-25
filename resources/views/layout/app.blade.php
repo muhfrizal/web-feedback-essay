@@ -42,7 +42,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <span class="navbar-brand">
-                {{ config('app.name', 'Website') }}
+                Sistem Publish Comment Management
             </span>
 
             <div class="ms-auto">
