@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('nomor')->unique();
             $table->text('pertanyaan');
+            $table->string('nama_gambar')->unique();
             $table->timestamps();
         });
     }

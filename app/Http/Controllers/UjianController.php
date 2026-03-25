@@ -11,17 +11,20 @@ class UjianController extends Controller
 {
     public function soal($nomor)
     {
-        // $user = auth()->user();
+        $user = auth()->user();
 
         $progres = Progres::firstOrCreate(
-            // ['user_id' => $user->id],
-            ['user_id' => 1],
+            ['user_id' => $user->id],
             ['soal_terakhir' => 0]
         );
+
+        $jmlSoal = Soal::get()->count();
 
         // Pencegahan lompat soal
         if ($nomor != $progres->soal_terakhir + 1) {
             return redirect()->route('soal', $progres->soal_terakhir + 1);
+        } else if ($nomor > $jmlSoal) {
+            return redirect()->route('sudahmengisi');
         }
 
         $soal = Soal::where('nomor', $nomor)->firstOrFail();
@@ -35,15 +38,17 @@ class UjianController extends Controller
             'jawaban' => 'required'
         ]);
 
+        $user = auth()->user();
+
         $soal = Soal::where('nomor', $nomor)->firstOrFail();
 
         Jawaban::create([
-            'user_id' => 1,
+            'user_id' => $user->id,
             'soal_id' => $soal->id,
             'jawaban' => $request->jawaban
         ]);
 
-        Progres::where('user_id', 1)
+        Progres::where('user_id', $user->id)
             ->update(['soal_terakhir' => $nomor]);
 
         $next = Soal::where('nomor', $nomor + 1)->exists();
@@ -56,5 +61,10 @@ class UjianController extends Controller
     public function selesai()
     {
         return view('selesai');
+    }
+
+    public function sudahmengisi()
+    {
+        return view('sudahmengisi');
     }
 }
