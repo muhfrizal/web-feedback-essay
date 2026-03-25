@@ -39,16 +39,46 @@
             📝 {{ config('app.name', 'Website') }}
         </span>
 
-        <div class="ms-auto text-white">
-            <a href="{{ route('logout') }}"
-               class="btn btn-sm btn-light ms-2"
-               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                Logout
-            </a>
+        <div class="ms-auto">
 
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
+            <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle d-flex align-items-center"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
+
+                    <span class="fw-semibold">
+                        {{ Auth::user()->nama }}
+                    </span>
+                </button>
+
+                <ul class="dropdown-menu dropdown-menu-end shadow">
+
+                    <li class="px-3 py-2">
+                        <div class="fw-semibold">
+                            {{ Auth::user()->nama }}
+                        </div>
+                        <small class="text-muted">
+                            NIP: {{ Auth::user()->nip }}
+                        </small>
+                    </li>
+
+                    <li><hr class="dropdown-divider"></li>
+
+                    <li>
+                        <a href="{{ route('logout') }}" class="dropdown-item text-danger"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+
+            </div>
+
         </div>
     </div>
 </nav>
