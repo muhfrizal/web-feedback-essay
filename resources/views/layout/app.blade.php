@@ -42,7 +42,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <span class="navbar-brand">
-                Sistem Publish Comment Management
+                Feedback Management System
             </span>
 
             <div class="ms-auto">

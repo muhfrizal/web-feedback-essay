@@ -1,16 +1,15 @@
 @extends('layout.app')
 
 @section('content')
-    <h4>Soal Nomor {{ $soal->nomor }}</h4>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <h4 class="mb-3">Soal Nomor {{ $soal->nomor }}</h4>
     {{-- Tampilkan gambar jika ada --}}
     @if (!empty($soal->nama_gambar))
-        <div class="mb-3 text-center">
-            <img 
-                src="{{ asset('storage/soal/' . $soal->nama_gambar) }}"
-                alt="Gambar Soal"
-                class="img-fluid rounded border"
-                style="max-height: 300px;"
-            >
+        <div class="mb-3 flex justify-center">
+            <img src="{{ asset('storage/soal/' . $soal->nama_gambar) }}" 
+            alt="Gambar Soal"
+            class="max-h-[620px] object-cover rounded-lg">
         </div>
     @endif
 

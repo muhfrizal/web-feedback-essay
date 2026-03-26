@@ -10,7 +10,7 @@
             </div>
             <div>
                 <p class="font-bold mb-4">{{ $post->pertanyaan }}</p>
-                <img src="{{ asset('storage/' . '1.png') }}" class="max-h-[620px] w-full object-cover rounded-lg">
+                <img src="{{ asset('storage/soal/'.$post->nama_gambar )}}" class="max-h-[620px] w-full object-cover rounded-lg">
             </div>
         </div>
 

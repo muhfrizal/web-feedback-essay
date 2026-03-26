@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Soal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Storage;
 
 class SoalController extends Controller
 {
@@ -33,7 +34,8 @@ class SoalController extends Controller
 
             $namaGambar = uniqid() . '.' . $file->getClientOriginalExtension();
 
-            $file->storeAs('public/soal', $namaGambar);
+            Storage::disk('public')->put('soal/'.$namaGambar, file_get_contents($file));
+            // $file->storeAs('public/soal', $namaGambar);
         }
 
         Soal::create([

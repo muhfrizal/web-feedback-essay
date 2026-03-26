@@ -12,10 +12,6 @@ class SummaryController extends Controller
         $val = Soal::with(['user','jawaban.user'])
         ->paginate(1);
 
-
-        // dd($val);
-
-
         return view('summary', compact('val'));
     }
 }
