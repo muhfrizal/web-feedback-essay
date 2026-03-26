@@ -2,6 +2,18 @@
 
 @section('content')
     <h4>Soal Nomor {{ $soal->nomor }}</h4>
+    {{-- Tampilkan gambar jika ada --}}
+    @if (!empty($soal->nama_gambar))
+        <div class="mb-3 text-center">
+            <img 
+                src="{{ asset('storage/soal/' . $soal->nama_gambar) }}"
+                alt="Gambar Soal"
+                class="img-fluid rounded border"
+                style="max-height: 300px;"
+            >
+        </div>
+    @endif
+
     <p>{{ $soal->pertanyaan }}</p>
 
     <form method="POST">
