@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Soal extends Model
 {
     protected $table = 'soal'; // sesuaikan nama tabel
-    protected $fillable = ['nomor', 'pertanyaan'];
+    protected $fillable = ['nomor', 'pertanyaan', 'nama_gambar'];
 
 
 
