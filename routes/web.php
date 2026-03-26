@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UjianController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SummaryController;
 
 // Route::get('/logout', [UjianController::class, 'selesai'])->name('logout');
 // Route::get('/ujian/{nomor}', [UjianController::class, 'soal'])->name('soal');
@@ -18,4 +19,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/ujian/{nomor}', [UjianController::class, 'simpan']);
     Route::get('/selesai', [UjianController::class, 'selesai'])->name('selesai');
     Route::get('/sudahmengisi', [UjianController::class, 'sudahmengisi'])->name('sudahmengisi');
+
+    Route::get('/summary',[SummaryController::class,'index'])->name('summary.index');
 });
