@@ -3,13 +3,13 @@
 @section('content')
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <h4 class="mb-3">Soal Nomor {{ $soal->nomor }}</h4>
+    <h4 class="mb-3">Nomor {{ $soal->nomor }}</h4>
     {{-- Tampilkan gambar jika ada --}}
     @if (!empty($soal->nama_gambar))
         <div class="mb-3 flex justify-center">
             <img src="{{ asset('storage/soal/' . $soal->nama_gambar) }}" 
             alt="Gambar Soal"
-            class="max-h-[620px] object-cover rounded-lg">
+            class="w-full max-h-[620px] object-cover rounded-lg">
         </div>
     @endif
 
