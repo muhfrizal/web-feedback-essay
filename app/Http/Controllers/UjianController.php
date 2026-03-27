@@ -29,7 +29,7 @@ class UjianController extends Controller
 
         $soal = Soal::where('nomor', $nomor)->firstOrFail();
 
-        return view('soal', compact('soal'));
+        return view('soal', compact('soal', 'jmlSoal'));
     }
 
     public function simpan(Request $request, $nomor)

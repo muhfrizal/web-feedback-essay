@@ -3,7 +3,7 @@
 @section('content')
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <h4 class="mb-3">Nomor {{ $soal->nomor }}</h4>
+    <h4 class="mb-3">Nomor {{ $soal->nomor }} dari {{ $jmlSoal }}</h4>
     {{-- Tampilkan gambar jika ada --}}
     @if (!empty($soal->nama_gambar))
         <div class="mb-3 flex justify-center">
